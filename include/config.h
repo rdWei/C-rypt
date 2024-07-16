@@ -13,10 +13,12 @@
 
 #define BG_COLOR (LfColor){6, 6, 6, 255}
 
-#define PATH_INPUT_BUF_SIZE 512
+#define PATH_INPUT_BUFF_SIZE 512
 
 #define FONT "fonts/inter.ttf"
 #define FONT_BOLD "fonts/inter-bold.ttf"
+
+#define NO_PNG "assets/no_png.png"
 
 #define BUTTON_FONT_SIZE 25
 #define TITLE_FONT_SIZE 50 

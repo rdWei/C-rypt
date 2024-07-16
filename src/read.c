@@ -1,11 +1,29 @@
 #include "../include/read.h"
 
-int ImageExsist(const char *filename) {
-  FILE *fp = fopen(filename, "rb");
-  if(!fp) {
+
+int ImageExist(const char *filename) {
+    FILE *fp = fopen(filename, "rb");
+    if (!fp) {
+        return 0;
+    }
+
+    // Buffer to hold the first few bytes of the file
+    unsigned char buffer[8];
+    size_t bytesRead = fread(buffer, 1, sizeof(buffer), fp);
+    fclose(fp);
+
+    if (bytesRead < 8) {
+        return 0;
+    }
+
+    // Check for PNG magic number (89 50 4E 47 0D 0A 1A 0A)
+    if (memcmp(buffer, "\x89PNG\r\n\x1A\n", 8) == 0) {
+        return 1;
+    }
+
+    // Add checks for other image formats as needed
+
     return 0;
-  }
-  return 1;
 }
 
 void readPngFile(const char *filename) {

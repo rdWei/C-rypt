@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <leif/leif.h>
 
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -39,36 +40,51 @@ int main() {
   
   // Input 
   LfInputField pathInput;
-  char pathInputBuf[PATH_INPUT_BUF_SIZE];
+  char pathInputBuf[PATH_INPUT_BUFF_SIZE];
 
-  memset(pathInputBuf, 0, PATH_INPUT_BUF_SIZE);
+  memset(pathInputBuf, 0, PATH_INPUT_BUFF_SIZE);
   pathInput = (LfInputField){
     .width = 450,
     .buf = pathInputBuf,
-    .buf_size = PATH_INPUT_BUF_SIZE,
+    .buf_size = PATH_INPUT_BUFF_SIZE,
     .placeholder = (char*)"/C-rypto/..."
   };
 
   LfInputField textToCrypt;
-  char textToCryptInputBuf[PATH_INPUT_BUF_SIZE];
+  char textToCryptInputBuf[PATH_INPUT_BUFF_SIZE];
 
-  memset(textToCryptInputBuf, 0, PATH_INPUT_BUF_SIZE);
+  memset(textToCryptInputBuf, 0, PATH_INPUT_BUFF_SIZE);
   textToCrypt = (LfInputField){
     .width = 700,
     .start_height = WIN_Y - 164,
     .buf = textToCryptInputBuf,
-    .buf_size = PATH_INPUT_BUF_SIZE,
+    .buf_size = PATH_INPUT_BUFF_SIZE,
     .placeholder = (char*)"Who lives in a pineapple under the sea? ..."
   };
 
   int isImage = 0;
+  LfTexture selectedImage = lf_load_texture(NO_PNG, true, LF_TEX_FILTER_LINEAR);
 
+  char* oldBuf = malloc(sizeof(pathInputBuf));
+  strcpy(oldBuf, pathInputBuf);
+
+  int porcoddio_count = 0;
+
+  // Main loop
   while(!glfwWindowShouldClose(window)) {
-    if(ImageExsist((char*)pathInputBuf)) {
-      isImage = 1;
-    } else {
-      isImage = 0;
+    if((strcmp(oldBuf, pathInputBuf)) != 0) {
+      porcoddio_count++;
+      printf("==%d==\npathInputBuf: %s\noldBuf:%s\n", porcoddio_count, pathInputBuf, (char*)oldBuf);
+      if(ImageExist((char*)pathInputBuf)) {
+        selectedImage = lf_load_texture(pathInputBuf, true, LF_TEX_FILTER_LINEAR);
+        isImage = 1;
+      } else {
+        isImage = 0;
+        selectedImage = lf_load_texture(NO_PNG, true, LF_TEX_FILTER_LINEAR);
+      }
+      strcpy(oldBuf, pathInputBuf);
     }
+
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a);
     
@@ -195,6 +211,19 @@ int main() {
       lf_pop_style_props(&Cbtnprops);
       lf_pop_style_props(&Dbtnprops);
       lf_pop_font(&buttonFont);
+    }
+
+
+    // Display image
+
+    lf_set_ptr_x_absolute(100);
+    lf_set_ptr_y_absolute(100);
+
+    selectedImage.width = 500;
+    selectedImage.height = 500;
+
+    if(lf_image_button(((LfTexture){.id = selectedImage.id}))) {
+      ;
     }
 
 

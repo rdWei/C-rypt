@@ -43,4 +43,5 @@ CMakeFiles/C-rypt.dir/src/read.c.o: /home/samuele/Dev/C-rypto/src/read.c \
  /usr/include/bits/types/struct___jmp_buf_tag.h /usr/include/time.h \
  /usr/include/bits/time.h /usr/include/bits/types/struct_tm.h \
  /usr/include/bits/types/struct_itimerspec.h \
- /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/string.h /usr/include/strings.h
