@@ -11,8 +11,11 @@
 
 #include "../include/config.h"
 #include "../include/read.h"
+#include "../include/change.h"
 
 /* TODO: if(pathInput is an image then display else display NO IMAGE) */
+
+
 
 int main() {
   glfwInit();
@@ -199,14 +202,143 @@ int main() {
       lf_set_ptr_x_absolute(WIN_X - 230);
       lf_set_ptr_y_absolute(5);
 
-      if(lf_button_fixed(OPTION_1, 60, -1) == LF_CLICKED) {
-        glfwSetWindowShouldClose(window, 1);
+if (lf_button_fixed(OPTION_1, 60, -1) == LF_CLICKED && isImage && (strlen(textToCryptInputBuf))) {
+    PixelRGBA wordToPixel[40];
+
+    for (int x = 0; x < 40; x++) {
+        if (textToCryptInputBuf[x] == '\0') { 
+            break;
+        }
+
+        switch (textToCryptInputBuf[x]) {
+            case 'a':
+            case 'A':
+                wordToPixel[x] = (PixelRGBA)RGBA_A;
+                break;
+            case 'b':
+            case 'B':
+                wordToPixel[x] = (PixelRGBA)RGBA_B;
+                break;
+            case 'c':
+            case 'C':
+                wordToPixel[x] = (PixelRGBA)RGBA_C;
+                break;
+            case 'd':
+            case 'D':
+                wordToPixel[x] = (PixelRGBA)RGBA_D;
+                break;
+            case 'e':
+            case 'E':
+                wordToPixel[x] = (PixelRGBA)RGBA_E;
+                break;
+            case 'f':
+            case 'F':
+                wordToPixel[x] = (PixelRGBA)RGBA_F;
+                break;
+            case 'g':
+            case 'G':
+                wordToPixel[x] = (PixelRGBA)RGBA_G;
+                break;
+            case 'h':
+            case 'H':
+                wordToPixel[x] = (PixelRGBA)RGBA_H;
+                break;
+            case 'i':
+            case 'I':
+                wordToPixel[x] = (PixelRGBA)RGBA_I;
+                break;
+            case 'j':
+            case 'J':
+                wordToPixel[x] = (PixelRGBA)RGBA_J;
+                break;
+            case 'k':
+            case 'K':
+                wordToPixel[x] = (PixelRGBA)RGBA_K;
+                break;
+            case 'l':
+            case 'L':
+                wordToPixel[x] = (PixelRGBA)RGBA_L;
+                break;
+            case 'm':
+            case 'M':
+                wordToPixel[x] = (PixelRGBA)RGBA_M;
+                break;
+            case 'n':
+            case 'N':
+                wordToPixel[x] = (PixelRGBA)RGBA_N;
+                break;
+            case 'o':
+            case 'O':
+                wordToPixel[x] = (PixelRGBA)RGBA_O;
+                break;
+            case 'p':
+            case 'P':
+                wordToPixel[x] = (PixelRGBA)RGBA_P;
+                break;
+            case 'q':
+            case 'Q':
+                wordToPixel[x] = (PixelRGBA)RGBA_Q;
+                break;
+            case 'r':
+            case 'R':
+                wordToPixel[x] = (PixelRGBA)RGBA_R;
+                break;
+            case 's':
+            case 'S':
+                wordToPixel[x] = (PixelRGBA)RGBA_S;
+                break;
+            case 't':
+            case 'T':
+                wordToPixel[x] = (PixelRGBA)RGBA_T;
+                break;
+            case 'u':
+            case 'U':
+                wordToPixel[x] = (PixelRGBA)RGBA_U;
+                break;
+            case 'v':
+            case 'V':
+                wordToPixel[x] = (PixelRGBA)RGBA_V;
+                break;
+            case 'w':
+            case 'W':
+                wordToPixel[x] = (PixelRGBA)RGBA_W;
+                break;
+            case 'x':
+            case 'X':
+                wordToPixel[x] = (PixelRGBA)RGBA_X;
+                break;
+            case 'y':
+            case 'Y':
+                wordToPixel[x] = (PixelRGBA)RGBA_Y;
+                break;
+            case 'z':
+            case 'Z':
+                wordToPixel[x] = (PixelRGBA)RGBA_Z;
+                break;
+            default:
+                // Carattere non gestito, puoi inserire un valore di default o gestire l'errore
+                fprintf(stderr, "Carattere non supportato: %c\n", textToCryptInputBuf[x]);
+                break;
+        }
+    }
+        char* outFileName = malloc(120);
+        char* suxcessMessage = malloc(132);
+        sprintf(outFileName, "%s%s", pathInputBuf, "-secret.png");
+        change_pixels(pathInputBuf, outFileName, wordToPixel, 20); // TODO change 20
+        memset(textToCryptInputBuf, '\0', sizeof(textToCryptInputBuf));
+        sprintf(suxcessMessage, "Crypted image: %s", outFileName);
+        textToCrypt.placeholder = suxcessMessage;
       }
     
       lf_push_style_props(Dbtnprops);
 
-      if(lf_button_fixed(OPTION_2, 89, -1) == LF_CLICKED) {
-        glfwSetWindowShouldClose(window, 1);
+      if(lf_button_fixed(OPTION_2, 89, -1) == LF_CLICKED && isImage) {
+        char* decodedString = malloc(40 /* MAX WORD SIZE*/);
+        memset(textToCryptInputBuf, '\0', sizeof(textToCryptInputBuf));
+        if(IsValid(pathInputBuf)) {
+          decodedString = generateEncodedAlphabet(pathInputBuf);
+        } 
+        textToCrypt.placeholder = decodedString;
       }
       lf_pop_style_props(&Cbtnprops);
       lf_pop_style_props(&Dbtnprops);
@@ -236,3 +368,16 @@ int main() {
   glfwTerminate();
 }
 
+/*
+int main() {
+  int MAX_BUFF = 400;
+  PixelRGBA wordToPixel[MAX_BUFF];
+  for(int x = 0; x < 10; x++) {
+    wordToPixel[x] = (PixelRGBA)RGBA_C;
+  }
+  wordToPixel[9] = (PixelRGBA)RGBA_F;
+  wordToPixel[10] = (PixelRGBA)RGBA_END;
+
+  change_pixels("lain1.png", "lain.png", wordToPixel, 11);  
+
+}*/
