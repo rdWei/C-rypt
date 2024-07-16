@@ -13,7 +13,6 @@
 #include "../include/read.h"
 #include "../include/change.h"
 
-/* TODO: if(pathInput is an image then display else display NO IMAGE) */
 
 
 
@@ -66,24 +65,18 @@ int main() {
   };
 
   int isImage = 0;
-  LfTexture selectedImage = lf_load_texture(NO_PNG, true, LF_TEX_FILTER_LINEAR);
 
   char* oldBuf = malloc(sizeof(pathInputBuf));
   strcpy(oldBuf, pathInputBuf);
 
-  int porcoddio_count = 0;
 
   // Main loop
   while(!glfwWindowShouldClose(window)) {
     if((strcmp(oldBuf, pathInputBuf)) != 0) {
-      porcoddio_count++;
-      printf("==%d==\npathInputBuf: %s\noldBuf:%s\n", porcoddio_count, pathInputBuf, (char*)oldBuf);
       if(ImageExist((char*)pathInputBuf)) {
-        selectedImage = lf_load_texture(pathInputBuf, true, LF_TEX_FILTER_LINEAR);
         isImage = 1;
       } else {
         isImage = 0;
-        selectedImage = lf_load_texture(NO_PNG, true, LF_TEX_FILTER_LINEAR);
       }
       strcpy(oldBuf, pathInputBuf);
     }
@@ -204,12 +197,13 @@ int main() {
 
 if (lf_button_fixed(OPTION_1, 60, -1) == LF_CLICKED && isImage && (strlen(textToCryptInputBuf))) {
     PixelRGBA wordToPixel[40];
-
+    int wCount = 0;
+    int charControl = 1;
     for (int x = 0; x < 40; x++) {
         if (textToCryptInputBuf[x] == '\0') { 
             break;
         }
-
+        wCount++;
         switch (textToCryptInputBuf[x]) {
             case 'a':
             case 'A':
@@ -315,16 +309,21 @@ if (lf_button_fixed(OPTION_1, 60, -1) == LF_CLICKED && isImage && (strlen(textTo
             case 'Z':
                 wordToPixel[x] = (PixelRGBA)RGBA_Z;
                 break;
+            case ' ':
+                wordToPixel[x] = (PixelRGBA)RGBA_SPACE;
+                break;
             default:
-                // Carattere non gestito, puoi inserire un valore di default o gestire l'errore
-                fprintf(stderr, "Carattere non supportato: %c\n", textToCryptInputBuf[x]);
+                memset(textToCryptInputBuf, '\0', sizeof(textToCryptInputBuf));
+                charControl = 0;
+                textToCrypt.placeholder = "Character not supported, please use alphabet letters and space only.";
                 break;
         }
     }
-        char* outFileName = malloc(120);
-        char* suxcessMessage = malloc(132);
+        if(charControl == 0) { continue; }
+        char* outFileName = malloc(FILE_NAME_MAX_SIZE*2);
+        char* suxcessMessage = malloc(FILE_NAME_MAX_SIZE + 20);
         sprintf(outFileName, "%s%s", pathInputBuf, "-secret.png");
-        change_pixels(pathInputBuf, outFileName, wordToPixel, 20); // TODO change 20
+        change_pixels(pathInputBuf, outFileName, wordToPixel, wCount); 
         memset(textToCryptInputBuf, '\0', sizeof(textToCryptInputBuf));
         sprintf(suxcessMessage, "Crypted image: %s", outFileName);
         textToCrypt.placeholder = suxcessMessage;
@@ -333,7 +332,7 @@ if (lf_button_fixed(OPTION_1, 60, -1) == LF_CLICKED && isImage && (strlen(textTo
       lf_push_style_props(Dbtnprops);
 
       if(lf_button_fixed(OPTION_2, 89, -1) == LF_CLICKED && isImage) {
-        char* decodedString = malloc(40 /* MAX WORD SIZE*/);
+        char* decodedString = malloc(MAX_WORD_SIZE);
         memset(textToCryptInputBuf, '\0', sizeof(textToCryptInputBuf));
         if(IsValid(pathInputBuf)) {
           decodedString = generateEncodedAlphabet(pathInputBuf);
@@ -351,12 +350,6 @@ if (lf_button_fixed(OPTION_1, 60, -1) == LF_CLICKED && isImage && (strlen(textTo
     lf_set_ptr_x_absolute(100);
     lf_set_ptr_y_absolute(100);
 
-    selectedImage.width = 500;
-    selectedImage.height = 500;
-
-    if(lf_image_button(((LfTexture){.id = selectedImage.id}))) {
-      ;
-    }
 
 
     lf_end();

@@ -29,6 +29,7 @@ const PixelMap pixelMap[] = {
     { RGBA_X, 'X' },   // RGBA_X
     { RGBA_Y, 'Y' },   // RGBA_Y
     { RGBA_Z, 'Z' },   // RGBA_Z
+    { RGBA_SPACE, ' ' },   // RGBA_SPACE
 };
 
 
@@ -150,7 +151,7 @@ PixelRGBA getPixelRGBA(const char *filename, int x, int y) {
 
 int IsValid(const char *filename) {
   PixelRGBA x = getPixelRGBA(filename, 38, 39);
-  if(x.a == 0) {
+  if(x.a == 255) {
     return 1;
   }
   return 0;
@@ -240,8 +241,7 @@ char *generateEncodedAlphabet(const char *filename) {
                 }
 
                 if (!found) {
-                    // Handle case where pixel does not match any predefined RGBA
-                    // You may want to add error handling or fallback logic here
+                  // TODO
                 }
             }
         }

@@ -15,10 +15,11 @@
 
 #define PATH_INPUT_BUFF_SIZE 512
 
+#define FILE_NAME_MAX_SIZE 256
+#define MAX_WORD_SIZE 256
+
 #define FONT "fonts/inter.ttf"
 #define FONT_BOLD "fonts/inter-bold.ttf"
-
-#define NO_PNG "assets/no_png.png"
 
 #define BUTTON_FONT_SIZE 25
 #define TITLE_FONT_SIZE 50 
@@ -53,4 +54,5 @@
 #define RGBA_Y {64, 0, 64, 255}   // Very Dark Magenta, fully opaque
 #define RGBA_Z {0, 64, 64, 255}   // Very Dark Cyan, fully opaque
 
+#define RGBA_SPACE {99, 99, 99, 255}   // idk tf this color is 
 #define RGBA_END {33, 33, 33, 21} // Termination sequence

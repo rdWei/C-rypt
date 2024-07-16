@@ -77,10 +77,9 @@ void change_pixels(const char *input_filename, const char *output_filename, Pixe
 
     png_read_image(png, row_pointers);
 
-    // Modifica il pixel al punto (38, 39) impostando la sua alpha a 0
     if (38 < width && 39 < height) {
         png_bytep px = &(row_pointers[39][38 * 4]); // Assuming RGBA format
-        px[3] = 0;    // Imposta alpha a 0
+        px[3] = 255;    
     }
 
     int current_x = 10; // Starting x position
