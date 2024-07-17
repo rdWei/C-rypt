@@ -31,6 +31,6 @@ C-rypt serves as a personal project aimed at honing my skills in C programming. 
 
 ## Showcase
 
-<img src="Img/img1.png" alt="Immagine 1" width="400">
-<img src="Img/img2.png" alt="Immagine 2" width="400">
+<img src="Img/img1.png" alt="Immagine 1" width="200">
+<img src="Img/img2.png" alt="Immagine 2" width="200">
 
