@@ -31,12 +31,6 @@ C-rypt serves as a personal project aimed at honing my skills in C programming. 
 
 ## Showcase
 
-<div class="container">
-    <div class="image-container">
-        <img src="Img/img1.png" alt="Immagine 1">
-    </div>
-    <div class="image-container">
-        <img src="Img/img2.png" alt="Immagine 2">
-    </div>
-</div>
+<img src="Img/img1.png" alt="Immagine 1" width="400">
+<img src="Img/img2.png" alt="Immagine 2" width="400">
 

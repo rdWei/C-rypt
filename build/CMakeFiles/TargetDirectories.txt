@@ -1,3 +1,0 @@
-/home/samuele/Dev/C-rypt/build/CMakeFiles/C-rypt.dir
-/home/samuele/Dev/C-rypt/build/CMakeFiles/edit_cache.dir
-/home/samuele/Dev/C-rypt/build/CMakeFiles/rebuild_cache.dir
