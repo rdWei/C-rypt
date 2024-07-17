@@ -43,8 +43,19 @@ Before            |  After
 
 _See [TODO](#TODO)_
 
+## Compile
+
+```
+mkdir build
+cd build
+cmake ..
+make
+cd ..
+./out/C-rypt
+```
+
 ## Usage
-Here is a video that explains how to use this [C-rypto]()
+Here is a video that explains how to use [C-rypt]()
 
 ## Todo
 
