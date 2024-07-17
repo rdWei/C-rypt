@@ -55,7 +55,7 @@ cd ..
 ```
 
 ## Usage
-Here is a video that explains how to use [C-rypt]()
+Here is a video that explains how to use [C-rypt](https://packaged-media.redd.it/zhfs3tceqzcd1/pb/m2-res_480p.mp4?m=DASHPlaylist.mpd&v=1&e=1721242800&s=918119cc8a91a2c42590fdf5f6eda27abea71bc7#t=0)
 
 ## Todo
 
