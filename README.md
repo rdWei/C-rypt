@@ -1,1 +1,3 @@
-# WHO LIVES IN A PINEAPPLE UNDER THE SEA????
+<p align="center">
+    <img src="Img/logo.png">
+</p>
