@@ -31,9 +31,6 @@ C-rypt serves as a personal project aimed at honing my skills in C programming. 
 
 ## Showcase
 
-<div style="display: inline-block; margin-right: 10px;">
-    <img src="Img/img1.png" alt="Immagine 1" style="max-width: 100%; height: auto; display: block;" width="200">
-</div>
-<div style="display: inline-block;">
-    <img src="Img/img2.png" alt="Immagine 2" style="max-width: 100%; height: auto; display: block;" width="200">
-</div>
+Before            |  After
+:-------------------------:|:-------------------------:
+![](Img/img1.png)  |  ![](Img/img2.png)
