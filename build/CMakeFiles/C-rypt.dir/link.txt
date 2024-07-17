@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall "CMakeFiles/C-rypt.dir/src/change.c.o" "CMakeFiles/C-rypt.dir/src/main.c.o" "CMakeFiles/C-rypt.dir/src/read.c.o" -o /home/samuele/Dev/C-rypt/out/C-rypt  /usr/lib/libpng.so /usr/lib/libz.so -lleif -lglfw -lm -lGL -lclipboard -lxcb
