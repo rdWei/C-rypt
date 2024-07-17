@@ -34,3 +34,23 @@ C-rypt serves as a personal project aimed at honing my skills in C programming. 
 Before            |  After
 :-------------------------:|:-------------------------:
 ![](Img/img1.png)  |  ![](Img/img2.png)
+
+## Limitations
+
+- Messages support alphabetical letters and spaces.
+- Supported image format: PNG.
+- Maximum character count: ~30.
+
+_See [TODO](TODO)_
+
+## Usage
+Here is a video that explains how to use this [C-rypto]()
+
+## Todo
+
+- Increase maximum character limit to 1000.
+- Add support for special characters such as ?, !, &, :, ., and numbers in messages.
+
+## Contributing
+If you'd like to contribute, you can submit a [pull request](https://github.com/rdWei/C-rypt/pulls) with your changes or open an [issue](https://github.com/rdWei/C-rypt/pulls) to report any problems or feature requests.
+
