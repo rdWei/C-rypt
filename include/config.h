@@ -3,7 +3,7 @@
 #define WIN_TITLE "C-rypt - Steganography with C"
 #define APP_TITLE "C-rypt"
 
-#define OPTION_1 "Crypt"
+#define OPTION_1 "Encrypt"
 #define OPTION_2 "Decrypt"
 
 #define WIN_X 1280 
@@ -17,6 +17,7 @@
 
 #define FILE_NAME_MAX_SIZE 256
 #define MAX_WORD_SIZE 256
+#define MAX_LOG_BUFF 500
 
 #define FONT "fonts/inter.ttf"
 #define FONT_BOLD "fonts/inter-bold.ttf"
@@ -24,6 +25,8 @@
 #define BUTTON_FONT_SIZE 25
 #define TITLE_FONT_SIZE 50 
 #define NORMAL_FONT_SIZE 20
+#define TINY_FONT_SIZE 14
+#define SUBTITLE_FONT_SIZE 25
 
 // Dfine Alphabet to Color (thank u chatgpt <3)
 

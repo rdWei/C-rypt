@@ -1,6 +1,8 @@
 #include "../include/read.h"
 #include "../include/config.h"
 
+#define MAX_LEN 10
+
 // Mapping table: RGBA values mapped to alphabet letters
 const PixelMap pixelMap[] = {
     { RGBA_A, 'A' },   // RGBA_A
@@ -261,3 +263,16 @@ char *generateEncodedAlphabet(const char *filename) {
     return encoded_string;
 }
 
+char* FormattedTime() {
+    time_t now;
+    struct tm *info;
+    static char buffer[MAX_LEN];
+
+    time(&now);
+    info = localtime(&now);
+
+    // Formatta l'ora nel buffer
+    strftime(buffer, MAX_LEN, "%H:%M:%S", info);
+
+    return buffer;
+}

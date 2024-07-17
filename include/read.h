@@ -23,5 +23,5 @@ int ImageExist(const char *filename);
 int IsValid(const char *filename);
 PixelRGBA getPixelRGBA(const char *filename, int x, int y);
 char *generateEncodedAlphabet(const char *filename);
-
+char* FormattedTime();
 #endif
