@@ -41,7 +41,7 @@ Before            |  After
 - Supported image format: PNG.
 - Maximum character count: ~30.
 
-_See [TODO](TODO)_
+_See [TODO](#TODO)_
 
 ## Usage
 Here is a video that explains how to use this [C-rypto]()
