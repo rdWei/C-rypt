@@ -39,7 +39,7 @@ Before            |  After
 
 - Messages support alphabetical letters and spaces.
 - Supported image format: PNG.
-- Maximum character count: ~30.
+- Maximum character count: depend on the size of the image (if x = 600 then max char = ~900)
 
 _See [TODO](#TODO)_
 
