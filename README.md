@@ -18,6 +18,7 @@
     - [Why](#why)
 - [Showcase](#showcase)
 - [Limitations](#limitations)
+- [Dependencies](#dependencies)
 - [Compile](#compile)
 - [Usage](#usage)
 - [TODO](#todo)
@@ -42,6 +43,14 @@ Before            |  After
 - Maximum character count: depend on the size of the image (if x = 600 then max char = ~900)
 
 _See [TODO](#TODO)_
+
+## Dependencies
+
+To compile C-rypt, you will need the following libraries:
+
+- [leif](https://github.com/cococry/leif)
+- [libpng](http://www.libpng.org/pub/png/libpng.html)
+
 
 ## Compile
 
