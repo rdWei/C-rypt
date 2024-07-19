@@ -70,6 +70,7 @@ Here is a video that explains how to use [C-rypt](https://packaged-media.redd.it
 
 - Increase maximum character limit to 1000.
 - Add support for special characters such as ?, !, &, :, ., and numbers in messages.
+- Switching from leif to nappgui
 
 ## Contributing
 If you'd like to contribute, you can submit a [pull request](https://github.com/rdWei/C-rypt/pulls) with your changes or open an [issue](https://github.com/rdWei/C-rypt/pulls) to report any problems or feature requests.
