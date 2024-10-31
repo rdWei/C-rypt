@@ -4,13 +4,7 @@
 
 <h1></h1>
 
-<br>
 
-<div style="display: inline;" align="center">
-    <a href="https://github.com/rdWei/rdWei/blob/main/donate.MD">
-        Support Me
-    </a>
-</div>
 
 ### TOC
 
